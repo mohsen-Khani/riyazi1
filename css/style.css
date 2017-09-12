@@ -1,0 +1,18 @@
+@font-face {
+   font-family: xbniloofar; 
+    src: url(font/Niloofar/xb_niloofar.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+   font-family: xbniloofar; 
+    src: url(font/Niloofar/xb_niloofarbd.ttf);
+    font-weight: bold;
+}
+
+ p,h1,h2{
+    font-family: xbniloofar;
+    direction: rtl;
+}
+
+
