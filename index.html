@@ -3,6 +3,12 @@
 <html dir="rtl" >
 <link rel="stylesheet" href="css/style.css">
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <script type="text/javascript"
      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   </script>
@@ -33,10 +39,11 @@
       </tbody>
 </table>
 <hr>
-<h3>
+<button class="accordion" dir="rtl">
 
 درباره‌ درس
-</h3>
+</button>
+<div  class="panel">
  مدرسان با  چندین شورا در تابستان ۹۶
 سرفصلهای زیر را برای این دوره‌ی درسی ریاضیات عمومیِ ۱ انتخاب کرده‌اند. این انتخاب با در نظر گرفتن نیازهای دانشگاه
 و
@@ -101,9 +108,11 @@ Tom M. Apostol,
 Wiley India Pvt. Limited
 </li>
 </ul>
-<h2>
+</div>	
+<button class="accordion" dir="rtl">
  تاریخهای مهم
-</h2>
+</button>
+<div class="panel">
 <ul>
 <li>
 کوئیز اول، دوشنبه ۲۴ مهرماه، ساعت ۵ بعدازظهر
@@ -122,9 +131,11 @@ Wiley India Pvt. Limited
 امتحان پایان‌ترم: چهارشنبه ۱۳ دی‌ماه ساعت ۸.۳۰ صبح
 </li>
 </ul>
-<h2>
+</div>
+<button class="accordion" dir="rtl">
 نحوه‌ی ارزشیابی
-</h2>
+</button>
+<div class="panel">
 <ul>
 <li>
 دو کوئیز به ارزش ۱۰ درصد
@@ -140,10 +151,12 @@ Wiley India Pvt. Limited
 
 </li>
 </ul>
-<hr>
-<h3>
+</div>
+
+<button class="accordion" dir="rtl">
 ضوابط و الزامات
-</h3>
+</button>
+<div class="panel">
  <ul>
 <li>
 هرگونه‌ی آگهیِ‌ مربوط به این درس در همین صفحه گذاشته خواهد شد.
@@ -168,6 +181,7 @@ Wiley India Pvt. Limited
 نیاز است که دانشجویان برگه‌های تمرین را پرینت بگیرند، روی هر تک‌ برگه نام خود را بنویسند و برگه‌ها را منگنه‌شده تحویل دهند.
 </li>
 </ul> 
+</div>
 <hr>
 <h3>
 تمرینها
@@ -194,4 +208,27 @@ Wiley India Pvt. Limited
 Calculus, Sequences and Series, Integration, Derivation, Newton, Leibniz, Taylor series,  Fundamental theorems of Calculus, Mean value theorem,
 Exponential function, Logarithm, Hyperbolic functions, Complex numbers.
 </div>
+<script>
+$(document).ready(function(){
+var acc = document.getElementsByClassName("accordion");
+var i;
 
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
+        this.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+}
+});
+</script>
+</body>
+</html>
