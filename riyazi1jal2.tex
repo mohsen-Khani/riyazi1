@@ -1,0 +1,535 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{framed}
+\usepackage{enumerate}
+\theoremstyle{definition}
+\newtheorem{thm}{قضیه}
+\newtheorem{mesal}[thm]{مثال}
+\newtheorem{soal}[thm]{سوال}
+\newtheorem{tav}[thm]{توجه}
+
+\newtheorem{tamrinetahvili}{تمرین تحویلی}
+\newtheorem{lem}[thm]{لم}
+
+\newtheorem{nokte}[thm]{نکته}
+\newtheorem{jambandi}{جمعبندی}
+\newtheorem{defn}[thm]{تعریف}
+
+\usepackage{xepersian}
+\settextfont{XB Niloofar}
+\setdigitfont{XB Niloofar}
+\linespread{1.5}
+\begin{document}
+\section*{جلسه‌ی دوم}
+ادامه‌ی مثالها:
+\begin{mesal}
+دنباله‌ی 
+$a_n=(r^n)_{n\in \mathbb{N}}$
+را در نظر بگیرید که در آن 
+$r$
+یک عدد گویای ثابت است و 
+$0<r<1$.
+نشان دهید که 
+$\lim_{n \to \infty}a_n=0$.
+\end{mesal}
+اگر فرض کنیم
+$r=\frac{1}{2}$
+چند جمله‌ی اول دنباله به صورت زیرند
+\[
+\frac{1}{2},\frac{1}{2^2},\frac{1}{2^3},...
+\]
+بنابراین این ادعا که دنباله‌ی یادشده به صفر می‌گراید درست به نظر می‌رسد.
+\begin{proof}[پاسخ]
+باید ثابت کنیم که 
+\[
+\forall \epsilon >0 \quad \exists N_\epsilon \in \mathbb{N} \quad \forall n>N_\epsilon \quad r^n < \epsilon
+\]
+علت این که ننوشته‌ایم
+$|r^n|<\epsilon$
+این است که می‌دانیم جملات این دنباله همه مثبتند.
+فرض کنید 
+$\epsilon >0$
+داده شده باشد.
+توجه کنید که 
+$r^n<\epsilon$
+معادل است با 
+$\frac{1}{r^n}> \frac{1}{\epsilon}$.
+طبق فرض سوال می‌دانیم که
+$0<r<1$
+پس
+$\frac{1}{r}>1$.
+بنابراین می‌توانیم فرض کنیم که یک عددِ
+$a>0$
+موجود است به طوری که
+$\frac{1}{r}=1+a$.
+پس می‌خواهیم که
+\[
+ \frac{1}{r^n}={(\frac{1}{r})}^n={(1+a)}^n > \frac{1}{\epsilon}
+\]
+بنا به نامساوی برنولی
+$(1+a)^n \geqslant 1+na$.
+پس
+کافی است داشته باشیم: 
+\[
+1+na>\frac{1}{\epsilon} 
+\]
+و برای آن کافی است که
+\[
+n>\frac{\frac{1}{\epsilon}-1}{a}.
+\]
+پس اگر
+\[
+N_\epsilon = \lfloor \frac{\frac{1}{\epsilon}-1}{a} \rfloor +1
+\]
+آنگاه
+\[
+\forall n>N_\epsilon \quad r^n <\epsilon
+\]
+از جمله‌ی 
+$a_{N_\epsilon}$
+به بعدِ دنباله مد نظر مااست. یعنی اگر
+$a_n$
+یکی از اعضای مجموعه‌ی زیر باشد 
+\[
+a_{N_\epsilon},a_{N_\epsilon+1},a_{N_\epsilon+2},\ldots 
+\]
+آنگاه 
+$|a_n|<\epsilon$.
+\end{proof}
+\begin{thm}\hfill 
+\begin{enumerate}[a.]
+\item
+فرض کنید 
+$(a_n)_ {n \in \mathbb{N}}$
+و 
+$(b_n)_{n \in \mathbb{N}} $
+دو دنباله‌ی همگرا باشند، آنگاه
+\[
+\lim_{n \to \infty}(a_n+b_n)=\lim_{n \to \infty}a_n+\lim_{n \to \infty}b_n
+\]
+\begin{proof}
+فرض کنیم
+که
+\[
+\lim_{n\to \infty} a_n=A, \quad \lim_{n\to \infty}b_n=B.
+\]
+برای این که نشان دهیم که
+$\lim a_n+b_b=A+B$
+باید نشان دهیم که
+\[
+\forall \epsilon >0 \quad \exists N_\epsilon \in \mathbb{N} \quad \forall n>N_\epsilon \quad |(a_n+b_n)-(A+B)| < \epsilon
+\]
+فرض کنیم
+$\epsilon>0$
+داده شده باشد. 
+از آنجا که
+$a_n$
+همگرا به 
+$A$
+است
+می‌دانیم که یک
+$N^1_{\epsilon/2}$
+موجود است، به طوری که
+\[
+\forall n>N^1_{\epsilon/2} \quad |a_n-A|<\epsilon/2
+\]
+همچنین
+از آنجا که
+$b_n$
+همگرا به 
+$B$
+است
+می‌دانیم که یک
+$N^1_{\epsilon/2}$
+موجود است، به طوری که
+\[
+\forall n>N^1_{\epsilon/2} \quad |b_n-B|<\epsilon/2
+\]
+پس اگر
+$N>\max\{N^1_{\epsilon/1},N^1_{\epsilon/2}\}$
+آنگاه 
+\[
+\forall n>N \quad |(a_n+b_n)-(A+B)|\leq |a_n-A|+|b_n-B|\leq \frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon.
+\]
+\end{proof}
+\item
+\[
+\forall \lambda \in \mathbb{R} \quad \lim_{n \to \infty}\lambda a_n = \lambda \lim_{n \to \infty}a_n
+\]
+\begin{proof}
+فرض کنیم که
+\[
+\lim_{n\to \infty} a_n=A.
+\]
+باید نشان دهیم
+که
+\[
+\forall\epsilon>0 \exists N\in \mathbb{N}\quad \forall n>N
+\quad |\lambda a_n-\lambda A|=|\lambda| |(a_n-A)|<\epsilon.
+\]
+کافی است بگیریم
+$\epsilon_1=\frac{\epsilon}{|\lambda|}$
+و از همگرائیِ دنباله‌ی
+$a_n$
+استفاده کنیم.
+\end{proof}
+\item
+اگر 
+$\lim_{n \to \infty}b_n \neq 0$
+آنگاه
+\[
+\lim_{n \to \infty}\frac{a_n}{b_n}=\frac{\lim_{n \to \infty}a_n}{\lim_{n \to \infty}b_n}
+\]
+\begin{proof}
+فرض کنیم که
+$\lim_{n\to \infty}b_n=B\not=0$
+و
+$\lim_{n\to \infty}a_n=A$.
+باید ثابت کنیم که
+\[
+\forall \epsilon>0 \quad \exists N\in \mathbb{N}\quad \forall n>N \quad 
+|\frac{a_n}{b_n}-\frac{A}{B}|<\epsilon
+\]
+پس می‌خواهیم که داشته باشیم
+\[
+|\frac{a_nB-Ab_n}{Bb_n}|<\epsilon
+\]
+عبارتِ
+$-AB+AB$
+را به درون صورت اضافه می‌کنیم:
+\[
+|\frac{a_nB-AB+AB-Ab_n}{Bb_n}|
+<\epsilon
+\]
+داریم
+\[
+|\frac{a_nB-AB+AB-Ab_n}{Bb_n}|\leq \frac{|B||a_n-A|+|A||b_n-B|}{|{Bb_n}|}
+\]
+کافی است عبارت سمت راستِ بالا از
+$\epsilon$
+کمتر باشد.
+توجه کنید که از آنجا که
+$b_n$
+همگراست، یک
+$N_1$
+موجود است به طوری که 
+\[
+\forall n>N_1 \quad |b_n-B|<\epsilon \quad (*)
+\]
+پس
+\[
+\forall n>N_1 \quad B-\epsilon<b_n<B+\epsilon\quad (**)
+\]
+بنا به 
+$(**)$
+می‌توان اعداد مثبتِ
+$M_1,M_2$
+را چنان یافت که
+\[
+\forall n\in \mathbb{N}\quad  M_1<|b_n|<M_2 \quad (***).
+\]
+حال توجه کنید که دنباله‌ی
+$a_n$
+به 
+$A$ 
+همگراست. پس عددِطبیعی
+$N_2$
+چنان موجود است که
+\[
+\forall n>N_2 \quad |a_n-A|<\epsilon.
+\]
+حال اگر
+$n>\max\{N_1,N_2\}$
+آنگاه
+\[
+|a_n-A|<\epsilon, \quad |b_n-B|<\epsilon
+\]
+پس
+\[
+\frac{|B||a_n-A|+|A||b_n-B|}{|{Bb_n}|}\leq
+\frac{|B|\epsilon+|A|\epsilon}{|B|M_1}=\frac{(|A|+|B|)\epsilon}{|B|M_1}
+\]
+بحث تقریباًتمام شده است؛
+تا اینجا ثابت کرده‌ایم که:
+\newline 
+ برای هر
+$\epsilon>0$
+عددِ
+$N\in \mathbb{N}$
+چنان موجود است که 
+\[
+\forall n>N \quad |\frac{a_n}{b_n}-\frac{A}{B}|<\frac{(|A|+|B|)\epsilon}{|B|M_1}
+\]
+در بند بالا، به جای
+$\epsilon$
+مقدارِ
+$\frac{|B|M_1}{|A|+|B|}\epsilon$
+را بگذارید.
+\footnote{نه! در امتحان نمی‌آید!}
+\end{proof}
+\end{enumerate}
+\end{thm}
+\begin{mesal}
+حد دنباله‌های زیر را بیابید.
+\begin{itemize}
+\item
+\[
+a_n=\lim_{n \to \infty}\frac{4^{n+3}+7}{5^n}
+\]
+\begin{proof}[پاسخ]
+\[
+\lim_{n \to \infty}a_n = \lim_{n \to \infty}\frac{4^{n+3}}{5^n}+\lim_{n \to \infty}\frac{7}{5^n}
+\]
+\[
+\lim_{n \to \infty}a_n = \lim_{n \to \infty}(\frac{4}{5})^n\times 4^3+\lim_{n \to \infty}\frac{1}{5^n}\times 7=0+0=0
+\]
+\end{proof}
+\item
+\[
+a_n = \frac{3^n}{2^n+4^n}
+\]
+راهنمایی: صورت و مخرج را بر
+$4^n$
+تقسیم کنید.
+\end{itemize}
+\end{mesal}
+در قضیه‌ی زیر می‌بینیم که اگر دنباله‌ای میان دو دنباله‌ی همگرا فشرده شود، همگراست. فرض کنیم
+$\lim a_n=L, \lim b_n=L$
+و
+$a_n\leq c_n\leq b_n$.
+برای 
+$n$
+های به‌اندازه‌ی کافی بزرگ جملات دنباله‌های
+$a_n,b_n$
+به 
+$L$
+نزدیکند. جملات دنباله‌ی
+$c_n$
+که میان این دو دنباله هستند نیز به ناچار در نزدیکی 
+$L$
+قرار می‌گیرند. در زیر این گفته را دقیق بیان و اثبات کرده‌ایم.
+\LTRfootnote{Squeeze Lemma}
+\begin{thm}[فشردگی]
+اگر 
+$\lim_{n\to \infty} a_n = \lim_{n\to \infty} b_n = L$
+و 
+\[
+\forall n \in \mathbb{N} \quad a_n\leqslant c_n\leqslant b_n,
+\]
+آنگاه
+\[
+\lim_{n\to \infty} c_n =L
+\]
+\begin{proof}
+باید ثابت کنیم که
+\[
+\forall \epsilon >0 \quad \exists N_\epsilon\in \mathbb{N} \quad \forall n>N_\epsilon \quad |c_n-L|<\epsilon
+\]
+یعنی می‌خواهیم
+\[
+\forall \epsilon >0 \quad \exists N_\epsilon\in \mathbb{N} \quad \forall n>N_\epsilon \quad L-\epsilon<c_n<L+\epsilon
+\]
+فرض کنیم که
+$\epsilon>0$
+داده شده باشد.
+از آنجا که 
+$\lim_{n\to \infty} a_n=L$
+ می‌دانیم که 
+$N_1\in \mathbb{N}$
+چنان موجود است که 
+\[
+\forall n>N_1 \quad a_n<L+\epsilon
+\]
+نیز از آنجا که 
+$\lim b_n=L$
+می‌دانیم که 
+$N_2\in \mathbb{N}$
+چنان موجود است که 
+\[
+\forall n>N_2 \quad L-\epsilon<b_n
+\]
+پس اگر
+$n>\max\{\mathbb{N}_1,\mathbb{N}_2\}$
+آنگاه
+\[
+L_\epsilon<b_n\leq c_n\leq a_n<L+\epsilon.
+\]
+\end{proof}
+\end{thm}
+\begin{mesal}
+با استفاده از قضیه‌ی فشردگی
+ثابت کنید که 
+\[
+\lim_{n \to \infty}\frac{2^n}{n!}=0
+\]
+\end{mesal}
+\begin{proof}[پاسخ]
+داریم
+\[
+0 \leqslant
+\frac{2^n}{n!}=
+ \frac{\overbrace{2 \times 2 \times 2 \times ... \times 2}^{\text{ بار}n}}{1 \times 2 \times \underbrace{ \times ... \times n}_{\geq 3 \times ... \times 3}} \leqslant 2 \times \frac{2^{n-2}}{3^{n-2}}=2 \times (\frac{2}{3})^{n-2}
+\]
+دنباله‌ی ثابتِ
+$0$
+و دنباله‌ی
+$2 \times (\frac{2}{3})^{n-2}$
+هر دو به صفر میل می‌کنند، پس
+بنا به فشردگی
+\[
+\lim \frac{2^n}{n!}=0.
+\]
+\end{proof}
+\begin{tav}
+همان اثبات بالا نشان می‌دهد که برای هر
+$a>0$
+داریم
+$\lim _{n\to \infty}\frac{a^n}{n!}=0$.
+\end{tav}
+\begin{tav}
+از آنجا که
+$\lim _{n\to \infty}\frac{2^n}{n!}=0$
+برای هر
+$\epsilon>0$
+دلخواه، یک
+$N\in\mathbb{N}$
+چنان یافت می‌شود که 
+\[
+\forall n>N \quad \frac{2^n}{n!}<\epsilon
+\]
+یعنی
+\[
+\forall n>N \quad 2^n<\epsilon n!
+\]
+و این  تقریباً همان «نرخ‌ رشد» است که درباره‌اش صحبت کرده‌ایم. 
+\end{tav}
+\begin{mesal}
+قرار دهید 
+$a_n = \sqrt[n]{n}$
+و نشان دهید که 
+\[
+\lim_{n \to \infty}a_n=1
+\]
+\end{mesal}
+\begin{proof}[پاسخ]
+چند جمله‌ی اول دنباله به صورت زیرند:
+\[
+1 \quad \sqrt{2} \quad \sqrt[3]{3} \quad \sqrt[4]{4} \quad ...
+\]
+داریم
+\[
+a_n = \sqrt[n]{n} \geqslant \sqrt[n]{1} =1
+\]
+پس می‌توان نوشت
+\[
+a_n=1+b_n \quad b_n \geqslant 0
+\]
+نشان می‌دهیم که 
+$\lim_{n \to \infty}b_n=0$
+\[
+a_n=\sqrt[n]{n}=1+b_n \quad \Rightarrow \quad n=(1+b_n)^n = 1+nb_n+\binom{n}{2}b_n^2+... 
+\]
+\[
+\Rightarrow \quad n\geqslant \binom{n}{2}b_n^2=\frac{n(n-1)}{2}b_n^2
+\]
+\[
+\Rightarrow \quad b_n^2 \leqslant \frac{2}{n-1} \Rightarrow 0 \leqslant b_n \leqslant \sqrt{\frac{2}{n-1}}
+\]
+بنا به فشردگی
+\[
+\lim_{n \to \infty}b_n=0
+\]
+\end{proof}
+\begin{mesal}
+اگر
+$a_n=\sqrt[n]{1+2^n}$
+نشان دهید که 
+\[
+\lim_{n \to \infty}a_n=2
+\]
+\end{mesal}
+\begin{proof}[پاسخ]
+\[
+a_n=\sqrt[n]{1+2^n} \geqslant \sqrt[n]{2^n}=2 \quad \Rightarrow \quad a_n\geqslant 2 \quad \Rightarrow \quad \frac{a_n}{2}\geqslant 1
+\]
+\[
+(a_n)^n = 1+2^n \quad \Rightarrow \quad (\frac{a_n}{2})^2 = \frac{1}{2^n}+1
+\]
+\[
+1 \leqslant \frac{a_n}{2} \leqslant \underbrace{(\frac{a_n}{2})^n}_{\lim_{n \to \infty}(\frac{a_n}{2})^n = 1}
+\]
+\[
+\lim_{n \to \infty}\frac{a_n}{2} = 1 \quad \Rightarrow \quad \lim_{n \to \infty}a_n = 2
+\]
+\end{proof}
+\begin{defn}[دنباله‌ی کراندار]
+دنباله‌ی
+$(a_n)$
+را کراندار می‌خوانیم هرگاه
+\[
+\exists M \in \mathbb{N} \quad \forall n \in \mathbb{N} \quad |a_n|<M
+\]
+یعنی
+\[
+\forall n \in \mathbb{N}\quad 
+-M<a_n<M.
+\]
+\end{defn}
+\begin{proof}[مشاهده]
+هر دنباله‌ی همگرا کراندار است.
+\[
+a_n \mapsto L
+\]
+\[
+\epsilon =\frac{1}{2} \quad \exists N_\epsilon \quad \forall n>N_\epsilon \quad |a_n-L|<\frac{1}{2}
+\]
+\[
+\Rightarrow \quad \forall n > N_\epsilon \quad L-\frac{1}{2} <a_n<L+\frac{1}{2}
+\]
+\end{proof}
+\begin{tav}
+$(-1)^n$
+کراندار نیست ولی همگراست.
+\end{tav}
+\begin{thm}
+هر دنباله‌ی صعودی و از بالا کراندار همگراست (و هر دنباله‌ی نزولی و از پائین‌کراندار همگراست).
+\end{thm}
+یک دنباله‌ی صعودی و از بالاکراندار به کوچکترین کرانِ بالای خود همگراست. 
+وجودِ کوچکترین کرانِ بالا را اصل تمامیت در اعدادِ حقیقی تضمین می‌کند:
+\begin{tav}
+هر زیرمجموعه‌ی کراندار از اعدادِ حقیقی، دارای کوچکترین کران بالا است.
+\end{tav}
+آیا آنچه در بالا گفته‌ایم درباره‌ی اعدادِ گویا هم درست است؟
+\begin{mesal}
+نشان دهید که دنباله‌ی 
+$a_n=\sum_{k=1}^n \frac{1}{k!}$
+همگراست.
+\end{mesal}
+\begin{proof}[پاسخ]
+چند جمله‌ی اول دنباله به صورت زیرند:
+\[
+a_1=1 \quad a_2=1+\frac{1}{2!} \quad a_3=1+\frac{1}{2!}+\frac{1}{3!}
+\]
+دقت کنید که
+\[
+a_n-a_{n-1}=\frac{1}{n!} \geqslant 0
+\]
+یعنی دنباله‌ی
+$(a_n)$
+صعودی است. کافی است نشان دهیم که دنباله‌ی یادشده از بالا کراندار است. 
+\[
+a_n=\sum_{k=1}^n\frac{1}{k!}=1+\frac{1}{2!}+\frac{1}{3!}+...+\frac{1}{n!} \leqslant 1+\frac{1}{2}+\frac{1}{2\times 2}+\frac{1}{2\times 2\times 2}+...+\frac{1}{2^{n-1}}
+\]
+\[
+a_n \leqslant \underbrace{(\frac{1}{2})^0+(\frac{1}{2})^1+(\frac{1}{2})^2+...+(\frac{1}{2})^{n-1}}_{= \frac{1-(\frac{1}{2})^n}{1-\frac{1}{2}}=\frac{1-(\frac{1}{2})^n}{\frac{1}{2}}=2(1-(\frac{1}{2})^n) \leqslant 3}
+\]
+\end{proof}
+در جلسات بعد این را که
+\[
+\frac{1}{2})^1+(\frac{1}{2})^2+...+(\frac{1}{2})^{n-1}=\frac{1-(\frac{1}{2})^n}{1-\frac{1}{2}}
+\]
+ثابت خواهیم کرد.
+\end{document}
