@@ -1,0 +1,273 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{cancel} 
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{framed}
+
+
+
+\theoremstyle{definition}
+\newtheorem{thm}{قضیه}
+\newtheorem{mesal}[thm]{مثال}
+\newtheorem{soal}[thm]{سوال}
+\newtheorem{tav}[thm]{توجه}
+
+\newtheorem{tamrinetahvili}{تمرین تحویلی}
+\newtheorem{lem}[thm]{لم}
+
+\newtheorem{nokte}[thm]{نکته}
+\newtheorem{jambandi}{جمعبندی}
+\newtheorem{defn}[thm]{تعریف}
+
+\usepackage{xepersian}
+\settextfont{XB Niloofar}
+\setdigitfont{XB Niloofar}
+\linespread{1.5}
+\begin{document}
+\section{نیم‌جلسه‌ی سوم}
+\begin{mesal}
+نشان دهید دنباله‌ی 
+$(1+\frac{1}{n})^n$
+همگراست.
+\end{mesal}
+\begin{proof}[پاسخ]
+نشان می‌دهیم که دنباله‌ی یاد شده‌ی صعودی و از بالا کراندار است.
+صعودی بودن دنباله یعنی:
+\[
+\forall n \quad a_n \leqslant a_{n+1}
+\]
+پس  از آنجا که جملات دنباله مثبتند،‌ کافی است برای اثبات صعودی بودن دنباله، نشان دهیم:
+\[
+\forall n \quad \frac{a_{n+1}}{a_n} \geqslant 1
+\]
+داریم
+\[
+\frac{a_{n+1}}{a_n}=
+\frac{(1+\frac{1}{n+1})^{n+1}}{(1+\frac{1}{n})^n}=\frac{(\frac{n+2}{n+1})^{n+1}}{(\frac{n+1}{n})^n}\times \frac{\frac{n+1}{n}}{\frac{n+1}{n}}=(\frac{n+1}{n})(\frac{n(n+2)}{(n+1)^2})^{n+1}=(\frac{n+1}{n})(\frac{n^2+2n}{(n+1)^2})^{n+1}
+\]
+\[
+=(\frac{n+1}{n})(\frac{(n+1)^2-1}{(n+1)^2})^{n+1}=(\frac{n+1}{n})(1-\frac{1}{(n+1)^2})^{n+1}
+\]
+با توجه به نامساوی برنولی، 
+داریم
+$(1+a)^{n+1} \geqslant 1+(n+1)a$
+پس
+\[
+(\frac{n+1}{n})(1-\frac{1}{(n+1)^2})^{n+1} \geqslant \frac{n+1}{n} \times (1-\frac{1}{(n+1)^2}) =\frac{n+1}{n}-\frac{\cancel{n+1}}{n \cancel{(n+1)}}=1+\frac{1}{n}-\frac{1}{n}=1 
+\]
+
+\hfill $\square$
+پایان اثبات صعودی بودن.
+\newline 
+اثبات کراندار بودن دنباله:
+\[
+a_n=(1+\frac{1}{n})^n=\sum_{k=0}^n \underbrace{\binom{n}{k} (\frac{1}{n})^k}_{\leqslant \frac{1}{k!}\text{ادعا:}}
+\]
+\[
+\binom{n}{k}=\frac{n!}{k! (n-k)!}
+\]
+\[
+\binom{n}{k} (\frac{1}{n})=\frac{1}{k!} \times \frac{n \times (n-1) \times ... \times (n-k+1)}{n^k}
+\]
+\[
+\frac{n \times (n-1) \times ... \times (n-k+1)}{n^k} \leqslant 1
+\]
+\[
+\Rightarrow \quad a_n \leqslant \sum_{k=0}^{n} \frac{1}{k!}
+\]
+جلسه‌ی قبل نشان دادیم که 
+$\sum_{k=0}^{n} \frac{1}{k!}$
+کراندار است.
+\end{proof}
+\begin{tav}
+بعداً در همین درس خواهیم دید که حد دنباله‌ی
+$a_n=(1+\frac{1}{n})^n$
+برابر است با
+$e$،
+عددِ نپر. عددِ نپر همچنین برابر است با حاصلجمعِ سری زیر:
+\[
+\sum_{n=0}^\infty \frac{1}{n!}.
+\]
+\end{tav}
+\begin{mesal}
+حد دنباله‌ی زیر را با ذکر دلیل مشخص کنید.
+\[
+a_n=\sqrt{2n^5-5n}-\sqrt{2n^5-n^2}
+\]
+\end{mesal}
+\begin{proof}[پاسخ]
+\[
+a_n=\underbrace{\sqrt{2n^5-5n}}_{a}-\underbrace{\sqrt{2n^5-n^2}}_b
+\]
+با توجه به رابطه‌ی 
+$(a-b)(a+b)=a^2-b^2$
+داریم:
+\[
+a_n=a_n \times \frac{a+b}{a+b}=\frac{\overbrace{5n}^{\leqslant 5n^2}+n^2}{\sqrt{2n^5-5n}+\sqrt{2n^5-n^2}} \geqslant 0
+\]
+مخرج کسر را کوچک و صورت آن را بزرگ می‌کنیم
+\[
+0 \leqslant a_n \leqslant \frac{6n^2}{\sqrt{2n^5}+\sqrt{n^5}}=\frac{6n^2}{(\sqrt{2}+1) n^{\frac{5}{2}}}=\frac{6}{(\sqrt{2}+1)}n^{2-\frac{5}{2}}
+\]
+$6n^{2-\frac{5}{2}}$
+به صفر میل می‌کند. در نتیجه حد 
+$a_n$
+ نیز 
+ بنا به فشردگی 
+ صفر است. 
+\end{proof}
+\begin{mesal}
+نشان دهید که 
+$\lim_{n \to \infty}\sqrt[n]{2}=1$.
+\end{mesal}
+\begin{proof}[پاسخ]
+\[
+1=\sqrt[n]{1} \leqslant \sqrt[n]{2}=1+b_n \quad b_n \geqslant 0
+\]
+نشان می‌دهیم که 
+$\lim_{n \to \infty} b_n =0$
+می‌دانیم 
+$b_n \geqslant 0$
+همچنین
+$2=(1+b_n)^n$
+پس
+\[
+2=1+\binom{n}{1}b_n+\binom{n}{2}b_n^2+...+\binom{n}{n}b_n^n
+\]
+پس
+\[
+2\geq \binom{n}{1}b_n\Rightarrow
+1 \geqslant nb_n
+\]
+\[
+b_n \leqslant \frac{1}{n}
+\]
+بنابراین
+\[
+0 \leqslant b_n \leqslant \frac{1}{n}
+\]
+\[
+\lim_{n \to \infty} \frac{1}{n}=0
+\]
+در نتیجه بنا به فشردگی حد دنباله‌ی 
+$b_n$
+نیز صفر است.
+\end{proof}
+\begin{tav}
+به طور کاملاً مشابه می‌توان نشان داد که اگر 
+$a>1$
+آنگاه
+\[
+\sqrt[n]{a} \mapsto 1
+\]
+\end{tav}
+\begin{mesal}
+نشان دهید که 
+$\lim_{n \to \infty}\sqrt[n]{2^n+3^n}=3$
+\end{mesal}
+\begin{proof}[پاسخ]
+\[
+\sqrt[n]{3^n} \leqslant \sqrt[n]{2^n+3^n} \leqslant \sqrt[n]{3^n+3^n}
+\]
+\[
+\Rightarrow \quad 3 \leqslant a_n \leqslant \sqrt[n]{2 \times 3^n}
+\]
+\[
+\Rightarrow \quad 3 \leqslant a_n \leqslant 3\sqrt[n]{2}
+\]
+در مثال قبل دیدیم 
+که
+$\sqrt[n]{2}$
+به یک میل می‌کند، پس بنا به فشردگی
+$a_n \mapsto 3$.
+\end{proof}
+\begin{tav}
+به طور مشابه می‌توان نشان داد که اگر 
+$0<a<b$
+آنگاه
+\[
+\lim_{n \to \infty}\sqrt[n]{a^n+b^n}=b.
+\]
+\end{tav}
+\begin{mesal}
+فرض کنید 
+$\lim_{n \to \infty}a_n=3$
+ثابت کنید که 
+\[
+\lim_{n \to \infty}\sqrt[n]{a_n}=1
+\]
+\end{mesal}
+\begin{proof}[پاسخ]
+از آنجا که 
+$a_n \mapsto 3$
+برای 
+$\epsilon = \frac{1}{2}$
+یک 
+$N_\epsilon$
+ موجود است، به طوری که
+\[
+\forall n >N_\epsilon \quad |a_n-3|<\frac{1}{2}
+\]
+یعنی
+\[
+\forall n>N_\epsilon \quad 2.5<a_n<3.5
+\]
+پس
+\[
+\forall n>N_\epsilon \quad \sqrt[n]{2.5}<\sqrt[n]{a_n}<\sqrt[n]{3.5}
+\]
+\[
+\lim_{n \to \infty}\sqrt[n]{2.5}=1 , \lim_{n \to \infty}\sqrt[n]{2.5}=1
+\]
+بنا به قضیه‌ی فشردگی 
+$\lim_{n \to \infty}\sqrt[n]{a_n}=1$
+\end{proof}
+\begin{tav}
+\begin{enumerate}\hfill
+\item
+به طور مشابه می‌توان نشان داد که اگر 
+$\lim_{n \to \infty}a_n=a>0$
+آنگاه 
+\[
+\lim_{n \to \infty}\sqrt[n]{a_n}=1
+\]
+توجه کنید که شاید
+$\epsilon=\frac{1}{2}$
+در این جا کار نکند ولی می‌توان با انتخاب مناسبتری از آن به نتیجه‌ی مطلوب رسید. 
+\item
+در طی پاسخ مثال قبل همچنین ثابت کردیم که هر دنباله‌ی همگرا، کراندار است.
+\end{enumerate}
+\end{tav}
+\begin{framed}
+در این جلسه ثابت کردیم:
+\begin{enumerate}
+\item 
+$(1+\frac{1}{n})^n$
+همگراست.
+\item 
+اگر
+$a>1$
+آنگاه
+$\lim_{n\to \infty} \sqrt[n]{a}=1$.
+\item 
+اگر 
+$0<a<b$
+آنگاه
+\[
+\lim_{n \to \infty}\sqrt[n]{a^n+b^n}=b.
+\]
+\item 
+ اگر 
+$\lim_{n \to \infty}a_n=a>0$
+آنگاه 
+\[
+\lim_{n \to \infty}\sqrt[n]{a_n}=1
+\]
+\end{enumerate}
+
+\end{framed}
+\end{document}
