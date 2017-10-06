@@ -1,0 +1,675 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{cancel} 
+\usepackage{hyperref}
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{framed}
+\usepackage{stackrel}
+
+\theoremstyle{definition}
+\newtheorem{thm}{قضیه}
+\newtheorem*{tam}{تمرین}
+\newtheorem{mesal}[thm]{مثال}
+\newtheorem{soal}[thm]{سوال}
+\newtheorem{tav}[thm]{توجه}
+
+\newtheorem{tamrinetahvili}{تمرین تحویلی}
+\newtheorem{lem}[thm]{لم}
+
+\newtheorem{nokte}[thm]{نکته}
+\newtheorem{jambandi}{جمعبندی}
+\newtheorem{defn}[thm]{تعریف}
+
+\usepackage{xepersian}
+\settextfont{XB Niloofar}
+\setdigitfont{XB Niloofar}
+\linespread{1.5}
+\begin{document}
+\section{جلسه‌ی چهارم، سریها}
+\subsection*{مقدمه}
+قبلاً  به این نکته توجه کرده‌ایم که عددِ
+\[
+\pi=3.141592\ldots
+\]
+در واقع جمعی نامتناهی از اعدادِ گویاست:
+\[
+\pi=3+\frac{1}{10}+\frac{4}{100}+\frac{1}{1000}+\ldots
+\]
+به چنین جمعهائی، سری عددی می‌گوئیم.  می‌دانیم که حاصلجمع هر تعداد متناهی از اعداد گویا، عددی گویا می‌شود؛ اما همانگونه که در نمایش بالا برای عددِ
+$\pi$
+به نظر می‌رسد، حاصلجمع نامتناهی عدد گویا، شاید گویا نباشد.
+از طرفی در این باره صحبت کرده‌ایم که 
+در حساب وقتی صحبت از نامتناهی می‌شود، منظور متناهی‌های بزرگ است (یا نزدیک شدن به نامتناهی بوسیله‌ی متناهی‌های بزرگ). 
+اگر قرار باشد برای حاصلجمع نامتناهی عدد نیز معنی‌ای پیدا کنیم، باید از چنین ایده‌ای استفاده کنیم. مثلاً برای این که بگوئیم
+مجموع بالا، دقیقاً برابر با عددِ
+$\pi$
+است، باید ثابت کنیم که با استفاده از جمع بالا می‌توانیم به هر اندازه‌ی دلخواه به 
+$\pi$
+نزدیک شویم و برای رسیدن به تقریبهای بهتر برای
+$\pi$
+باید اعداد بیشتر و بیشتری را با هم جمع کنیم.
+\par 
+سریها اهمیت ویژه‌ی دیگری نیز دارند. در ریاضیات مقدماتی با چند جمله‌ای ها آشنا شده‌اید:
+\[
+a_nx^n+a_{n-1}x^{n-1}+\ldots +a_0
+\]
+چندجمله‌ایها توابعی پیوسته و خوشرفتارند و در نمودار آنها، بر خلاف نمودار توابعی مانند
+$\sin$،
+ تنها تعداد متناهی صعود و نزول دیده می‌شود. 
+ در ادامه‌ی این درس خواهیم دید که برخی توابع را، که آنها را \textbf{تحلیلی} می‌خوانیم، می‌توان با استفاده از چندجمله‌ای‌ها تقریب زد. یعنی می‌توان یک چندجمله‌ای از درجه‌ی بی‌نهایت تصور کرد که به هر اندازه‌ی دلخواه شبیه تابع مورد نظر شود، به شرط این که تا توانِ
+ $n$
+ اُمِ مناسبی از آن در نظر گرفته شود. در این باره بعداً در همین درس مفصلاً صحبت خواهیم کرد. در زیر چند نمونه‌ از این سریها (ی تیلور) را آورده‌ایم:
+\[
+\frac{1}{1-x}=1+x+x^2+x^3+...=\sum_{n=0}^{\infty}x^n \quad |x|<1
+\]
+\[
+\sin x = \sum_{n=0}^{\infty}\frac{(-1)^{n}}{(2n+1)!}x^{2n+1}=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...
+\]
+\subsection*{شروع درس}
+\begin{defn}
+فرض کنید
+$\{a_n\}_{n=0}^{\infty}$
+یک دنباله از اعداد حقیقی باشد.  حاصلجمعِ  (صوری) به صورت 
+\[
+a_0+a_1+a_2+...
+\]
+را یک
+\textbf{ سری (عددی) }
+می‌نامیم و آن را با 
+\[
+\sum_{n=0}^{\infty} a_n
+\]
+نمایش می‌دهیم.
+\end{defn}
+\begin{mesal}
+اگر
+$a_n=\frac{1}{n}$
+آن‌گاه جمع زیر یک سری عددی است. 
+\[
+\sum_{n=1}^{\infty}a_n=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+...
+\]
+\end{mesal}
+\begin{mesal}
+برای
+$a_n=n$
+یک سری به صورت زیر داریم.
+\[
+\sum_{n=0}^{\infty} a_n=1+2+3+4+...+n+\ldots
+\]
+\end{mesal}
+از آنجا که جمع بستن نامتناهی عدد ممکن نیست، حاصلجمع سریها را به صورت زیر تعریف می‌کنیم:
+اگر 
+$\sum_{n=0}^{\infty}a_n$
+یک سری باشد، 
+دنباله‌ی
+حاصلجمع‌های جزئی آن، یعنی دنباله‌ی
+$S_n$،
+ را به صورت زیر تعریف می‌کنیم:
+\[
+S_n=a_0+a_1+a_2+a_3+...+a_n
+\]
+\begin{align*}
+\begin{cases}
+S_0=a_0
+\\
+S_1=a_0+a_1
+\\
+S_2=a_0+a_1+a_2
+\\
+S_3=a_0+a_1+a_2+a_3
+\\
+\vdots 
+\end{cases}
+\end{align*}
+\begin{defn}
+اگر دنباله‌ی 
+$S_n$
+به
+$a$
+همگرا باشد، سری 
+$\sum_{n=0}^{\infty}a_n$
+را\textbf{ همگرا} به 
+$a$
+می‌خوانیم و می‌نویسیم
+\[
+\sum_{n=0}^{\infty}a_n=a=\lim_{n \to \infty}S_n
+\]
+اگر حدِّ فوق موجود نباشد سری مورد نظر را 
+\textbf{واگرا}
+می‌خوانیم.
+\end{defn}
+\begin{mesal}
+اگر 
+$a_n=n$
+آنگاه
+\[
+S_n=1+2+3+...+n=\frac{n(n+1)}{2}
+\]
+\[
+\sum_{n=0}^{\infty}a_n=
+\lim_{n\to \infty}S_n=
+\lim_{n \to \infty}\frac{n(n+1)}{2}=\infty
+\]
+سری فوق واگراست. 
+\end{mesal}
+\begin{mesal}
+حاصلجمع سری زیر را حساب کنید.
+\[
+\sum_{n=0}^{n=\infty}(\frac{1}{2})^n=1+\frac{1}{2}+\frac{1}{2^2}+\frac{1}{2^3}+\ldots
+\]
+\end{mesal}
+\begin{proof}[پاسخ]
+\[
+S_n=(\frac{1}{2})^0+(\frac{1}{2})^1+(\frac{1}{2})^2+...+(\frac{1}{2})^{n-1}+(\frac{1}{2})^{n}
+\]
+\[
+\frac{1}{2} \times S_n=(\frac{1}{2})^1+(\frac{1}{2})^2+(\frac{1}{2})^3+...+(\frac{1}{2})^{n}+(\frac{1}{2})^{n+1}
+\]
+\[
+S_n-\frac{1}{2} S_n=1-(\frac{1}{2})^{n+1}
+\]
+\[
+(1-\frac{1}{2})S_n=1-(\frac{1}{2})^{n+1} \quad \Rightarrow \quad S_n=\frac{1-(\frac{1}{2})^{n+1}}{1-\frac{1}{2}}
+\]
+می‌دانیم که
+\[
+\lim_{n \to \infty}(\frac{1}{2})^n=0
+\]
+پس
+\[
+\sum_{n=0}^{n=\infty}(\frac{1}{2})^n=
+\lim_{n \to \infty}S_n=\frac{1}{1-\frac{1}{2}}=2
+\]
+\end{proof}
+\subsection*{سریهای هندسی}
+همان طور که دقت کرده‌اید، در محاسبات بالا، می‌توان به جای
+$\frac{1}{2}$
+هر عدد دیگری را نیز در نظر گرفت. 
+مثال بالا، در واقع در رده‌ی مهمی از سریهای عددی به نام 
+\textbf{سریهای هندسی}
+قرار دارد. 
+\begin{defn}
+سری 
+$\sum_{n=0}^{\infty}r^n$
+، یعنی
+$r^0+r^1+r^2+...$،
+را یک 
+\textbf{سری هندسی}
+با
+\textbf{قدر نسبت $r$}
+می‌خوانیم.
+\end{defn}
+فرض کنیم
+$\sum_{i=0}^\infty r^n$
+یک سری هندسی باشد. داریم
+\[
+S_n = r^0+r^1+...+r^n
+\]
+\[
+rS_n = r^1+r^2+...+r^{n+1}
+\]
+\begin{align}
+\label{hesabi}
+&
+(1-r)S_n =1-r^{n+1}\stackrel{r\not=1\text{ با فرضِ }}\Rightarrow S_n=\frac{1-r^{n+1}}{{1-r}}
+\end{align}
+\begin{tav}
+\begin{enumerate}
+\item
+اگر 
+$-1<r<1$
+با توجه به فرمولِ 
+\ref{hesabi}
+آنگاه
+\[
+\sum_{i=0}^\infty r^n=\lim_{n \to \infty}S_n=\frac{1}{1-r}
+\]
+\item
+اگر 
+$r=1$
+آنگاه 
+\[
+S_n=1^0+1^1+1^2+1^3+...+1^n=(n+1)r
+\]
+پس
+\[
+\lim_{n \to \infty} S_n=\infty
+\]
+\item
+اگر 
+$|r|>1$
+با توجه به فرمولِ 
+\ref{hesabi}
+آنگاه
+\[
+\lim_{n \to \infty}S_n=\lim_{n \to \infty}\frac{1-r^{n+1}}{1-r}=\infty
+\]
+\end{enumerate}
+\end{tav}
+\begin{mesal}
+\[
+1+\frac{1}{3}+(\frac{1}{3})^2+...+(\frac{1}{3})^n = \frac{1}{1-\frac{1}{3}}
+\]
+\end{mesal}
+آنچه را که در توجه بالا آمد  در قضیه‌ی زیر خلاصه کرده‌ایم:
+\begin{thm}
+سری هندسی 
+$\sum_{n=0}^{\infty}r^n$
+همگراست اگر و تنها اگر 
+$|r|<1$.
+\end{thm}
+\begin{framed}
+یادآوری:
+\begin{align*}
+\begin{cases}
+p \to q
+\\
+\neg q \to \neg p
+\\
+q \to p
+\\
+\neg p \to \neg q
+\end{cases}
+\Leftrightarrow
+p  \stackrel{\text{اگر و تنها اگر}}{\longleftrightarrow} q
+\end{align*}
+\end{framed}
+\noindent
+\textbf{یک تعبیر هندسی برای سری‌های هندسی}
+: مربعی به طول 
+$1$
+در نظر بگیرید و روی یک ضلع آن به اندازه‌ی 
+$r<1$
+جدا کنید و مثلث زیر را بسازید:
+\begin{align*}
+\includegraphics[scale=0.1]{riyazi1jal4_1.jpg}
+\end{align*}
+در شکل بنا به تشابه مثلث‌ها داریم:
+\[
+\frac{r}{1}=\frac{S-1}{S} \quad \Rightarrow \quad rS=S-1 \quad \Rightarrow \quad (r-1)S=-1
+\]
+در نتیجه 
+\[
+S=\frac{1}{1-r}
+\]
+حال به اندازه‌ی 
+$r$
+روی مثلث بالایی جدا کنید  و سپس خطی موازی ضلع مربع بکشید. دوباره بنا به تشابه مثلث‌ها داریم:
+\begin{align*}
+\includegraphics[scale=0.1]{riyazi1jal4_2.jpg}
+\\
+\frac{x}{r}=\frac{S-(1+r)}{S-1}\Rightarrow
+\frac{x}{r}=r \quad \Rightarrow \quad x=r^2
+\end{align*}
+بدین ترتیب به شکل زیر برسید:
+\begin{align*}
+\includegraphics[scale=0.1]{riyazi1jal4_3.jpg}
+\end{align*}
+و مشاهده کنید که
+\[
+S=1+r+r^2+\ldots = \frac{1}{1-r}.
+\]
+\begin{mesal}
+همگرایی یا واگرایی سری زیر را بررسی کنید.
+\[
+\sum_{n=1}^{\infty} 2^{2n} 3^{1-n}
+\]
+\end{mesal}
+\begin{proof}[پاسخ]
+\[
+\sum_{n=1}^{\infty} 2^{2n} 3^{1-n}= \sum_{n=1}^{\infty} 4^{n} 3^{1-n}=\sum_{n=1}^{\infty} (\frac{4}{3})^{n} \times 3
+\]
+مثال بالا یک سری هندسی با قدر نسبت برابر با
+$\frac{4}{3}$
+است. 
+از آنجا که 
+$\frac{4}{3}$
+بزرگتر از 
+$1$
+است 
+این سری واگراست.
+\end{proof}
+\begin{mesal}
+همگرایی یا واگرایی سری زیر را بررسی کنید.
+\[
+\sum_{n=0}^{\infty} \frac{2^n+3^n}{4^n}
+\]
+\end{mesal}
+\begin{proof}[پاسخ]
+\[
+\sum_{n=0}^{\infty} \frac{2^n+3^n}{4^n}=\sum_{n=0}^{\infty} (\frac{2}{4})^n + (\frac{3}{4})^n=\underbrace{\sum_{n=0}^{\infty} (\frac{1}{2})^n}_{\frac{1}{1-\frac{1}{2}}} + \underbrace{\sum_{n=0}^{\infty}(\frac{3}{4})^n}_{\frac{1}{1-\frac{3}{4}}}=2+4=6
+\]
+این سری همگراست (البته، هنوز درباره‌ی این که چه موقع مجوز داریم جمعها را از زیر سری دربیاوریم، صحبت نکرده‌ایم).
+\end{proof}
+\subsection*{ادامه‌ی بحث سریها}
+\begin{mesal}
+همگرایی یا واگرایی سری زیر را بررسی کنید.
+\[
+\sum_{n=1}^{\infty} \frac{1}{n}=\frac{1}{1}+\frac{1}{2}+\frac{1}{3}+...
+\]
+\end{mesal}
+\begin{proof}[پاسخ]
+در نگاه اول به نظر می‌آید که رفتار سری فوق، شبیه‌ به رفتار سری
+$\sum_{n=1}^\infty (\frac{1}{2})^n$
+است. یعنی به نظر می‌آید همگرا باشد:
+فرض کنیم سری 
+$\sum_{n=1}^{\infty} \frac{1}{n}$
+همگرا به 
+$a$
+باشد.
+\[
+S_n = \sum_{k=1}^{n} \frac{1}{k}
+\]
+پس
+\[
+\lim_{n \to \infty}S_n = a 
+\]
+توجه کنید که از آنجا که
+دنباله‌ی
+$S_n$
+به
+$a$
+میل می‌کند، پس دنباله‌ی
+$S'_n:=S_{2n}$
+نیز به
+$a$
+میل می‌کند؛ یعنی
+\[
+\lim_{n\to \infty}S_{2n}=a.
+\]
+پس داریم:
+\[
+\lim_{n \to \infty}(S_{2n}-S_n) = \lim_{n \to \infty}S_{2n}-\lim_{n \to \infty}S_n=a-a=0
+\]
+از طرفی داریم:
+\[
+S_{2n}:a_1+a_2+\ldots+a_{2n}=1+\frac{1}{2}+\frac{1}{3}+\ldots+\frac{1}{n}+\ldots+\frac{1}{2n}
+\]
+\[
+S_{n}:a_1+a_2+\ldots+a_{n}=1+\frac{1}{2}+\frac{1}{3}+\ldots+\frac{1}{n}
+\]
+\[
+S_{2n}-S_n
+=\frac{1}{n+1}+\frac{1}{n+2}+\ldots+\frac{1}{2n}
+ \geqslant \frac{1}{2n}+\frac{1}{2n}+\ldots+\frac{1}{2n}=\frac{n}{2n}=\frac{1}{2}
+\]
+پس نمی‌توانیم داشته باشیم
+$\lim_{n \to \infty}(S_{2n}-S_n) =0$.
+بنابراین با فرض همگرا بودن سری 
+$\sum_{n=1}^{\infty}\frac{1}{n}$
+به تناقض می‌رسیم پس این سری واگراست.
+\end{proof}
+چند نکته را باید یادآور شویم.
+\begin{tav}\hfill
+\begin{itemize}
+\item 
+همان طور که مشاهده کرده‌اید،
+در بحثهای بالا گاهی در مورد
+$S_n$
+نادقیق بوده‌ایم. وقتی که اندیس دنباله از صفر شروع می‌شده است نوشته‌ایم
+\[
+S_n=a_0+a_1+\ldots+a_n
+\]
+و وقتی
+که اندیس دنباله از 
+یک شروع می‌شده است
+نوشته‌ایم
+\[
+S_n=a_1+\ldots+a_n
+\]
+در هر صورت، همواره منظورمان جمعی از عناصر اول دنباله بوده است.
+\item 
+در مورد 
+$S_{2n}$
+برخی دانشجویان دچار این کژفهمی شدند که
+\[S_{2n}=a_2+a_4+\ldots +a_{2n}.\]
+توجه کنید که منظورمان عبارت بالا نیست، بلکه بنا به تعریف:
+\[
+S_{2n}=a_1+a_2+\ldots+a_{2n}
+\]
+یعنی حاصلجمعِ
+$2n$
+جمله‌ی اول دنباله‌.
+\item 
+در خلال اثبات بالا، ادعا کردیم که از همگرا بودنِ
+$S_n$
+همگرا بودنِ
+$S_{2n}$
+نتیجه می‌شود. در زیر این را به طور دقیقتر اثبات کرده‌ایم.
+\end{itemize}
+\end{tav}
+\begin{lem}
+فرض کنید 
+که
+$a_n$
+یک دنباله باشد و داشته باشیم
+\[\lim_{n \to \infty} a_n=a.\]
+فرض کنید 
+$b_n$
+دنباله‌ی دیگری باشد به طوری که
+\[
+\forall n\in \mathbb{N}\quad b_{n}=a_{2n}.
+\]
+در این صورت
+\[
+\lim_{n \to \infty} b_{n}=a.
+\]
+\end{lem}
+\begin{tav}
+توجه کنید که اگر
+$a_n$
+دنباله‌ی زیر باشد
+\[
+a_0,a_1,a_2,\ldots
+\]
+آنگاه
+$b_n$
+دنباله‌ی زیر است:
+\[
+a_0,a_2,a_4,a_6,\ldots
+\]
+یعنی
+$b_n$
+زیردنباله‌ای از
+$a_n$
+است. 
+\end{tav}
+\begin{proof}[اثباتِ لم]
+باید ثابت کنیم که
+\[
+\forall \epsilon>0 \quad \exists N_\epsilon\in \mathbb{N}\quad \forall n>N_\epsilon
+\quad |b_n-a|<\epsilon
+\]
+فرض کنیم 
+$\epsilon > 0$
+داده شده باشد. بنا به همگرایی 
+$a_n$
+می‌دانیم که 
+\[
+\exists N'_\epsilon \quad \forall n >N'_\epsilon \quad |a_n-a|<\epsilon
+\]
+اگر 
+$n>N_\epsilon$
+آنگاه 
+$2n>N_\epsilon$
+پس
+\[
+\forall n>N'_\epsilon \quad |a_{2n}-a|<\epsilon
+\]
+یعنی
+\[
+\forall n>N'_\epsilon \quad |b_n-a|<\epsilon
+\]
+و حکم مورد نظر ثابت شد. 
+\end{proof}
+\begin{tam}[برای دانشجوی علاقه‌مند]
+نشان دهید که هر زیردنباله‌ی نامتناهیِ دلخواه از یک دنباله‌ی همگرا، همگراست. 
+\end{tam}
+\begin{framed}
+\begin{tav}
+\label{ak-ak+1}
+فرض کنید
+$a_n$
+یک دنباله‌ باشد. داریم
+\[
+\sum_{k=0}^{n} (a_k-a_{k+1})=(a_0\cancel{-a_1})+(\cancel{a_1}-a_2)+(a_2-a_3)+\ldots+(a_n-a_{n+1})=a_0-a_{n+1}
+\]
+یعنی
+در حاصل‌جمع بالا
+کوچکترین اندیسِ ممکن و بزرگترین اندیس ممکن  باقی‌ می‌مانند.
+\end{tav}
+\end{framed}
+\begin{mesal}
+همگرایی یا واگرایی سری زیر را بررسی کنید.
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^2}=1+\frac{1}{2^2}+\frac{1}{3^3}+\ldots
+\]
+\end{mesal}
+\begin{proof}[پاسخ]
+\[
+S_n = \sum_{k=1}^{n} \frac{1}{k^2}=1+\frac{1}{2^2}+\frac{1}{3^3}+\ldots+\frac{1}{n^2}
+\]
+دنباله‌ی 
+$\{S_n\}$
+را در نظر بگیرید.
+این دنباله صعودی است، زیرا 
+\[
+S_{n+1}-S_n=\frac{1}{{(n+1)}^2}\geq 0.
+\]
+همچنین داریم
+\[
+S_n = \sum_{k=1}^{n} \frac{1}{k^2}=1+\sum_{k=2}^{n} \frac{1}{k^2} \leqslant 1+\sum_{k=2}^{n} \frac{1}{k^2-k}
+\]
+در اینجا مخرج کسرها را کوچک کرده‌ایم تا کسرها بزرگتر شوند.
+\begin{framed}
+چرک‌نویس
+\[
+\frac{1}{k-1}-\frac{1}{k}=\frac{k-k+1}{k(k-1)}=\frac{1}{k(k-1)}
+\]
+\end{framed}
+\begin{align*}
+&
+1+\sum_{k=2}^{n} \frac{1}{k^2-k}=1+\sum_{k=2}^{n} \frac{1}{k(k-1)}=
+\\
+&
+1+\sum_{k=2}^{n} (\frac{1}{k-1}-\frac{1}{k})\stackrel{
+\text{   بنا به توجهِ  \ref{ak-ak+1}}
+}
+{=}1+(1-\frac{1}{n})
+\Longrightarrow \quad S_n \leqslant 1+(1-\frac{1}{n}) \Rightarrow S_n \leqslant 2
+\end{align*}
+پس 
+دنباله‌ی
+$S_n$
+صعودی و کراندار است و از این رو
+$S_n$
+همگراست.
+\begin{tav}
+فعلاً ابزار لازم را برای محاسبه‌ی حد سری بالا در دست نداریم. این جمع را اویلر محاسبه کرده‌ است:
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^2} =\frac{\pi^2}{6}
+\]
+توجه کنید که دوباره، حاصلجمعی نامتناهی از اعداد گویا برابر با یک عدد اصم شده است. برای دانستن روش محاسبه‌ی این جمع، پیوندهای زیر را مطالعه بفرمائید:
+\newline
+\url{https://www.math.purdue.edu/~eremenko/dvi/euler.pdf}
+\newline 
+\url{https://en.wikipedia.org/wiki/Basel_problem}
+\end{tav}
+\end{proof}
+\begin{tav}
+تابع 
+$\frac{1}{x^2}$
+را در نظر بگیرید.
+\begin{align*}
+& \includegraphics[scale=0.1]{riyazi1jal4_4.jpg}
+\\
+&\sum_{n=2}^{\infty} \frac{1}{n^2}=
+\text{ مجموع مساحت مستطیلها در شکل}
+ \leqslant \text{مساحت زیر منحنی} =\int_1^\infty \frac{1}{x^2}
+\end{align*}
+در فصلهای بعدی درباره‌ی رابطه‌ی بین انتگرالگیری و سریها بیشتر خواهیم گفت. 
+\end{tav}
+\begin{tav}
+سری
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^3}
+\]
+را در نظر بگیرید. دنباله‌ی حاصلجمعهای جزئی این سری نیز صعودی است و داریم
+\[
+ \sum_{n=1}^{\infty} \frac{1}{n^3}
+  \leqslant \sum_{n=1}^{\infty} \frac{1}{n^2}
+\]
+پس سریِ
+$\sum_{n=1}^{\infty} \frac{1}{n^3}$
+همگراست. 
+به همین ترتیب می‌توان نشان داد که 
+اگر
+$p\geq 2$
+و
+$p\in \mathbb{Q}$
+آنگاه
+سری
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^p}
+\]
+همگراست.
+حال اگر
+$p \in \mathbb{Q}^+, p <1$
+آنگاه 
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^p} > \sum_{n=1}^{\infty} \frac{1}{n}
+\]
+پس در این صورت سریِ
+$\sum_{n=1}^{\infty} \frac{1}{n^p}$
+واگراست. 
+اگر 
+$p=1$
+نیز دیدیم که 
+سری یادشده واگراست. 
+\textbf{همچنین اگر
+$1<p<2$
+نیز این سری همگراست؛ این را فعلاً می‌پذیریم ولی در ادامه‌ی درس با ابزارهای پیشرفته‌تر ثابت خواهیم کرد. }
+\end{tav}
+\begin{framed}
+در این جلسه فهمیدیم که
+\begin{itemize}
+\item 
+سری هندسی 
+$\sum_{n=0}^{\infty}r^n$
+همگراست اگر و تنها اگر 
+$|r|<1$.
+در این صورت (یعنی در صورت همگرائی)‌ داریم
+\[
+\sum_{n=0}^{\infty}r^n=\frac{1}{1-r}
+\]
+\item 
+سریِ
+$\sum_{n=1}^\infty \frac{1}{n^p}$
+که در آن
+$p\in \mathbb{Q}^{+}$
+است برای
+$p\leq 1$
+واگرا و برای
+$p>1$
+همگراست. 
+اگر
+$p=1$
+به سری حاصل، سری هارمونیک، یا همساز می‌گویند. در حالت کلی، این سریها،
+$p$سری
+نامیده می‌شوند. 
+\item 
+اگر یک دنباله همگرا باشد، هر زیردنباله‌ی نامتناهی از آن نیز همگراست.
+\item 
+اگر
+$a_n$
+یک دنباله‌ باشد، داریم
+\[
+\sum_{k=0}^{n} (a_k-a_{k+1})=a_0-a_{n+1}
+\]
+\end{itemize}
+\end{framed}
+\end{document}
